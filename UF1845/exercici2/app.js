@@ -1,13 +1,19 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // Connection URL
-const url = "mongodb+srv://<username>:<password>@cluster0-lo8dg.mongodb.net";
+/* Host de connexió: cluster0-lo8dg.mongodb.net
+Nom d’usuari: cuidador
+Password: gorilabonic
+Nom de la base de dades: zoo
+Nom de la col·lecció: animales */
+
+const url = "mongodb+srv://cuidador:gorilabonic@cluster0-lo8dg.mongodb.net";
 
 // Database Name
-const dbName = "";
+const dbName = "zoo";
 
 // Collection
-const collectionName = "";
+const collectionName = "animales";
 
 // Create a new MongoClient
 const client = new MongoClient(url);
