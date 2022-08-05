@@ -13,14 +13,16 @@
 
     <form class="w3-container" action="/add-candidate" method="POST">
         <p>
+
+
             <label>First Name</label>
-            <input class="w3-input" type="text"></p>
+            <input class="w3-input" type="text" maxlength="50" pattern="[a-zA-Z\s]+" required></p>
         <p>
             <label>Last Name</label>
             <input class="w3-input" type="text"></p>
         <p>
             <label>Email</label>
-            <input class="w3-input" type="text"></p>
+            <input class="w3-input" type="email" required></p>
         <input class="w3-button w3-border" type="submit">
 
     </form>
