@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>List candidates</title>
+</head>
+
+<body>
+    <% if (phones.length !=0) { %>
+
+        <table class="w3-table ">
+            <tr class="w3-red">
+                <th>MODEL</th>
+                <th>PREU</th>
+            </tr>
+
+
+            <% phones.forEach(function(phone){ %>
+                <tr class="w3-hover-blue">
+                    <th>
+                        <%= phone.model %>
+                    </th>
+                    <th>
+                        <%= phone.price %>
+                    </th>
+                </tr>
+                <% }); %>
+                    <% } else {  %>
+
+                        <h1>Cap teléfon té un preu inferior a
+                            <%= maxPrice %>€. </h1>
+                        <% }%>
+
+
+
+        </table>
+
+</body>
+
+</html>
