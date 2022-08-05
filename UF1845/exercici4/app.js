@@ -23,44 +23,6 @@ const Smartphones = mongoose.model("smartphone", smartphoneSchema);
    */
 
 
-app.get("/add-new", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "add-new.html"));
-})
-
-app.post("/add-new", (req, res) => {
-    const model = req.body.model;
-    const price = req.body.price;
-    //console.log(model, price);
-    const newSmartphone = new Smartphones({
-        model: model,
-        price: price
-    });
-
-    console.log(newSmartphone);
-
-    newSmartphone.save()
-        .then(() => {
-            res.redirect("/list-phones");
-        })
-        .catch(err => {
-            console.log(err);
-        });
-
-
-});
-
-app.get("/list-phones", (req, res) => {
-    //mostrat tots els smartphones por consola
-    console.log(req.params);
-
-/*     Smartphones.find()
-
-        .then(smartphones => {
-            res.render("list-phones", {
-                phones: smartphones
-            });
-        }) */
-})
 
 mongoose.connect(url, {
         useNewUrlParser: true
@@ -81,6 +43,58 @@ function doWork() {
     });
 
     const Smartphones = mongoose.model("smartphone", smartphoneSchema);
+
+
+    app.get("/add-new", (req, res) => {
+        res.sendFile(path.join(__dirname, "views", "add-new.html"));
+    })
+    
+    app.post("/add-new", (req, res) => {
+        const model = req.body.model;
+        const price = req.body.price;
+        //console.log(model, price);
+        const newSmartphone = new Smartphones({
+            model: model,
+            price: price
+        });
+    
+        console.log(newSmartphone);
+    
+        newSmartphone.save()
+            .then(() => {
+                res.redirect("/list-phones");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    
+    
+    });
+    
+    app.get("/list-phones", (req, res) => {
+        //mostrat tots els smartphones por consola
+        console.log(req.query);
+        let maxPrice = req.query.maxPrice;
+
+        Smartphones.find({
+                price: {
+                    $lte: maxPrice
+                }
+            })
+            .then(smartphones => {
+                res.render("list-phones", {
+                    phones: smartphones,
+                    maxPrice: maxPrice
+                });
+            }
+        ).catch(err => {
+            console.log(err);
+        }
+        );
+
+
+    })
+    
 
 }
 

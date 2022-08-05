@@ -10,7 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 const MONGODB_URI =
-    'mongodb://127.0.0.1/picsum';
+    'mongodb+srv://root:root@cluster0.f04cy.mongodb.net/picsum';
 
 // Add middleware
 app.use(express.urlencoded({ extended: false }));

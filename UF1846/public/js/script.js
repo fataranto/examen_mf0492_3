@@ -4,7 +4,7 @@
             return response.json();
         })
         .then(function(myJson) {
-            console.log(myJson);
+           // console.log(myJson);
             emplenarSelector(myJson);
         });
 
@@ -19,7 +19,7 @@
     }
 
     document.querySelector('.w3-select').onchange = (event) => {
-        console.log(event);
-        document.querySelector('#imatgeSeleccionada').src = event;
+        //console.log(event.target.value);
+        document.querySelector('#imatgeSeleccionada').src = event.target.value;
     }
 }
