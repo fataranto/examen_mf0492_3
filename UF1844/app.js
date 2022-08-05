@@ -34,6 +34,21 @@ app.get('/add-candidate', (req, res) => {
     res.render("formulario");
 });
 
+app.post('/add-candidate', (req, res) => {
+    const nom = req.body.nom;
+    const cognoms = req.body.cognoms;
+    const email = req.body.email;
+    const candidat = {
+        nom: nom,
+        cognoms: cognoms,
+        email: email
+    }
+    baseDadesCandidats.push(candidat);
+    console.log(baseDadesCandidats);
+    res.redirect("/");
+});
+
+
 app.get('/about', (req, res) => {
     res.render("about");
 });
