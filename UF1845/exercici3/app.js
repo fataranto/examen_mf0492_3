@@ -34,30 +34,15 @@ client.connect(function (err) {
     })
 
 
-    //restaurant_id >= 4036300 y zipcode = 10001;
-    /*  const query2 = {
-         $and: [
-             {restaurant_id: {$gte: 4036300}},
-             {zipcode: 11418}
-         ]
-     }; */
-
-    //restaurant_id >= 4036300 y adress.zipcode = 10001;
 
 
-    const query2 = {
-        $and: [{
-                restaurant_id: {
-                    $gte: 40363590
-                }
-            },
-            {
-                address: {
-                    zipcode: 11418
-                }
-            }
+
+    const query2 = { 
+        $and:[
+          {'restaurant_id':{$gte:"4036300"}},
+          {'address.zipcode':"11418"}
         ]
-    };
+      };
 
 
 
