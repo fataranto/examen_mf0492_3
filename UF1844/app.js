@@ -54,4 +54,13 @@ app.get('/about', (req, res) => {
 });
 
 
+app.get('/list-current-candidates', (req, res) => {
+    res.render("list-candidates", 
+    { 
+        candidats: baseDadesCandidats 
+    });
+});
+
+
+
 app.listen(3000);

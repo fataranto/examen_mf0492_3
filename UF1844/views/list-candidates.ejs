@@ -10,19 +10,39 @@
 </head>
 
 <body>
-    <table class="w3-table ">
-        <tr class="w3-red">
-            <th>NOM</th>
-            <th>COGNOM</th>
-            <th>EMAIL</th>
-        </tr>
-        <tr class="w3-hover-blue">
-            <th>Nom de la persona </th>
-            <th>Cognom de la persona </th>
-            <th>Email de la persona</th>
-        </tr>
 
+ 
+<%if(candidats.length > 0){%>
+    <div class="w3-container w3-blue">
+        <h2>List candidates</h2>
+    </div>
+
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+            <tr class="w3-red">
+                <th>NOM</th>
+                <th>COGNOM</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+
+  
+        <tbody>
+            <%candidats.forEach(function(candidate){%>
+                <tr class="w3-hover-blue">
+                    <td><%=candidate.nom%></td>
+                    <td><%=candidate.cognoms%></td>
+                    <td><%=candidate.email%></td>
+                </tr>
+            <%})%>
+        </tbody>
     </table>
+<%}else{%>
+    <h1>Encara no hi ha candidats</h1>
+<%}%>
+
+
+
 
 </body>
 
