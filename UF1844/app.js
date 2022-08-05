@@ -20,6 +20,9 @@ const baseDadesBuida = [];
 
 const app = express();
 
+//abrir la carpeta public
+app.use(express.static('public'));
+
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
@@ -30,5 +33,10 @@ app.get('/', (req, res) => {
 app.get('/add-candidate', (req, res) => {
     res.render("formulario");
 });
+
+app.get('/about', (req, res) => {
+    res.render("about");
+});
+
 
 app.listen(3000);
